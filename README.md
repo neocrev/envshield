@@ -1,81 +1,74 @@
 # envshield
 
-I've shipped too many apps that crashed because `DATABASE_URL` was missing in production. This is the pre-flight check I wish I'd had earlier.
+[![npm](https://img.shields.io/npm/v/envshield)](https://www.npmjs.com/package/envshield) [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
-```bash
-npx envshield
-```
-
-It compares your `.env` against a `.env.schema` and tells you what's missing. Nothing more.
+Validate your `.env` before your app crashes at 3am.
 
 <p align="center">
   <img src="demo.svg" alt="envshield in action" width="600">
 </p>
 
-## How it works
+---
 
-Drop a `.env.schema` in your project root:
+## The problem
+
+You deploy. The app starts. Then it dies because `DATABASE_URL` doesn't exist in production. envshield catches that before a single request is served.
+
+---
+
+## Setup
+
+Write a schema:
 
 ```
-# This app won't start without these
+# .env.schema
 DATABASE_URL=required
 STRIPE_SECRET_KEY=required
-
-# These have sensible defaults
 PORT=3000
 LOG_LEVEL=info
-NODE_ENV=development
-
-# This one's optional — no default, no crash
-MY_OPTIONAL_FEATURE_FLAG
 ```
 
 Then run:
 
-```
+```bash
 npx envshield
 ```
 
-If something's missing, it tells you:
+If something's missing, you'll know immediately.
 
-```
-✗ DATABASE_URL is required but not set in .env
-✗ STRIPE_SECRET_KEY is required but not set in .env
-```
+---
 
-## Why not just use dotenv?
-
-You still should. envshield runs *before* your app starts — think of it as a linter for your environment.
-
-## Sticking it in CI
+## Integrations
 
 ```yaml
+# CI
 - run: npx envshield --strict
 ```
 
-Or as a pre-commit hook:
-
-```bash
-# .husky/pre-commit
-npx envshield --strict
-```
-
-Or in a Dockerfile:
-
 ```dockerfile
+# Dockerfile
 COPY .env.schema ./
 RUN npx envshield
 ```
 
+```bash
+# pre-commit hook
+npx envshield --strict
+```
+
+---
+
 ## Options
 
-```
--s, --schema  Path to schema file        (default: .env.schema)
--e, --env     Path to env file           (default: .env)
--t, --strict  Missing required = error   (default: warn)
--i, --init    Generate schema from .env.example
--h, --help    You're looking at it
-```
+| Flag | Description | Default |
+|------|-------------|---------|
+| `-s, --schema` | Path to schema file | `.env.schema` |
+| `-e, --env` | Path to env file | `.env` |
+| `-t, --strict` | Fail on missing required fields | warn only |
+| `-i, --init` | Generate schema from `.env.example` | |
+| `-h, --help` | Show help | |
+
+---
 
 ## License
 
