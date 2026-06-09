@@ -8,6 +8,10 @@ npx envshield
 
 It compares your `.env` against a `.env.schema` and tells you what's missing. Nothing more.
 
+<p align="center">
+  <img src="demo.svg" alt="envshield in action" width="600">
+</p>
+
 ## How it works
 
 Drop a `.env.schema` in your project root:
