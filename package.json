@@ -1,0 +1,21 @@
+{
+  "name": "envshield",
+  "version": "1.0.0",
+  "description": "Validate .env files against a schema — catch missing variables before they crash your app",
+  "bin": {
+    "envshield": "./bin/envshield.js"
+  },
+  "keywords": [
+    "env",
+    "dotenv",
+    "validator",
+    "cli",
+    "pre-commit",
+    "configuration"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  }
+}
