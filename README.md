@@ -1,7 +1,7 @@
 <p align="center">
   <h1>envshield</h1>
   <p>Validate your <code>.env</code> before your app crashes at 3am.</p>
-  <a href="https://www.npmjs.com/package/envshield"><img src="https://img.shields.io/npm/v/envshield" alt="npm"></a>
+  <a href="https://www.npmjs.com/package/@neocrev/envshield"><img src="https://img.shields.io/npm/v/@neocrev/envshield" alt="npm"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green" alt="License"></a>
 </p>
 
@@ -30,7 +30,7 @@ LOG_LEVEL=info
 Then run:
 
 ```bash
-npx envshield
+npx @neocrev/envshield
 ```
 
 If something's missing, you'll know immediately.
@@ -41,17 +41,17 @@ If something's missing, you'll know immediately.
 
 ```yaml
 # CI
-- run: npx envshield --strict
+- run: npx @neocrev/envshield --strict
 ```
 
 ```dockerfile
 COPY .env.schema ./
-RUN npx envshield
+RUN npx @neocrev/envshield
 ```
 
 ```bash
 # pre-commit hook
-npx envshield --strict
+npx @neocrev/envshield --strict
 ```
 
 ---

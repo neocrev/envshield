@@ -1,5 +1,5 @@
 {
-  "name": "envshield",
+  "name": "@neocrev/envshield",
   "version": "1.0.0",
   "description": ".env validator — catches missing vars before your app crashes",
   "bin": {

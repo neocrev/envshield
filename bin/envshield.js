@@ -21,11 +21,11 @@ if (values.help) {
 envshield — .env validator
 
 USAGE
-  npx envshield                Check .env against .env.schema
-  npx envshield -s schema.env  Use custom schema path
-  npx envshield -e .env.prod   Check specific .env file
-  npx envshield --strict       Missing required = error (default: warn)
-  npx envshield --init         Generate a .env.schema from .env.example
+  npx @neocrev/envshield                Check .env against .env.schema
+  npx @neocrev/envshield -s schema.env  Use custom schema path
+  npx @neocrev/envshield -e .env.prod   Check specific .env file
+  npx @neocrev/envshield --strict       Missing required = error (default: warn)
+  npx @neocrev/envshield --init         Generate a .env.schema from .env.example
 
 OPTIONS
   -s, --schema  Path to schema file          (default: .env.schema)
