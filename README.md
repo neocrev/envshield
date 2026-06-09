@@ -1,16 +1,15 @@
-# envshield
-
-[![npm](https://img.shields.io/npm/v/envshield)](https://www.npmjs.com/package/envshield) [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
-
-Validate your `.env` before your app crashes at 3am.
+<p align="center">
+  <h1>envshield</h1>
+  <p>Validate your <code>.env</code> before your app crashes at 3am.</p>
+  <a href="https://www.npmjs.com/package/envshield"><img src="https://img.shields.io/npm/v/envshield" alt="npm"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green" alt="License"></a>
+</p>
 
 <p align="center">
   <img src="demo.svg" alt="envshield in action" width="600">
 </p>
 
 ---
-
-## The problem
 
 You deploy. The app starts. Then it dies because `DATABASE_URL` doesn't exist in production. envshield catches that before a single request is served.
 
@@ -46,7 +45,6 @@ If something's missing, you'll know immediately.
 ```
 
 ```dockerfile
-# Dockerfile
 COPY .env.schema ./
 RUN npx envshield
 ```
