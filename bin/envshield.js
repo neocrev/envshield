@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { readFileSync, existsSync, writeFileSync } from 'node:fs';
-import { resolve, dirname } from 'node:path';
+import { resolve } from 'node:path';
 import { parseArgs } from 'node:util';
 import { validate } from '../lib/validator.js';
 
@@ -40,7 +40,6 @@ OPTIONS
 const schemaPath = resolve(values.schema);
 const envPath = resolve(values.env);
 
-// --init: generate schema from .env.example
 if (values.init) {
   const examplePath = positionals[0] || '.env.example';
   if (!existsSync(examplePath)) {
